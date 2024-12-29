@@ -1,0 +1,78 @@
+{
+    "arguments": [
+        {
+            "name": "--backend_connection",
+            "type": "str",
+            "required": false,
+            "default": "openeo.dataspace.copernicus.eu",
+            "help": "URL of the OpenEO backend service (default: openeo.dataspace.copernicus.eu)"
+        },
+        {
+            "name": "--collection",
+            "type": "str",
+            "required": true,
+            "help": "Name of the data collection (e.g., SENTINEL2_L2A)"
+        },
+        {
+            "name": "--west",
+            "type": "float",
+            "required": true,
+            "help": "Longitude of the western edge of the bounding box"
+        },
+        {
+            "name": "--south",
+            "type": "float",
+            "required": true,
+            "help": "Latitude of the southern edge of the bounding box"
+        },
+        {
+            "name": "--east",
+            "type": "float",
+            "required": true,
+            "help": "Longitude of the eastern edge of the bounding box"
+        },
+        {
+            "name": "--north",
+            "type": "float",
+            "required": true,
+            "help": "Latitude of the northern edge of the bounding box"
+        },
+        {
+            "name": "--start_date",
+            "type": "str",
+            "required": true,
+            "help": "Start date for data extraction (format: YYYY-MM-DD)"
+        },
+        {
+            "name": "--end_date",
+            "type": "str",
+            "required": true,
+            "help": "End date for data extraction (format: YYYY-MM-DD)"
+        },
+        {
+            "name": "--bands",
+            "type": "str",
+            "required": true,
+            "help": "Comma-separated list of spectral bands to retrieve (e.g., B02,B04,B08)"
+        },
+        {
+            "name": "--cloud_cover",
+            "type": "int",
+            "required": true,
+            "help": "Maximum cloud cover percentage allowed for data (e.g., 20 for 20%)"
+        },
+        {
+            "name": "--output_dir",
+            "type": "str",
+            "required": true,
+            "help": "Directory to save the extracted data results"
+        },
+        {
+            "name": "--jobs_title",
+            "type": "str",
+            "required": false,
+            "default": "OpenEO Extracting Image Job",
+            "help": "Title for the processing job (default: 'OpenEO Extracting Image Job')"
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+# Ignore virtual environment directory
+resenv/
+
+# Ignore output directories
+imgs/
+results/
