@@ -3,6 +3,8 @@
 
 This repository contains a Python project that leverages the [`openeo`](https://openeo.org/documentation/1.0/) library to extract satellite data. It processes the data into GeoTIFF images for a specified area of interest and optionally converts these GeoTIFFs into RGB PNG files for easier visualization.
 
+
+
 ## Project Structure
 
 - **`/config`**: The folder containing the configurations for some automations.
@@ -18,7 +20,7 @@ This repository contains a Python project that leverages the [`openeo`](https://
 - **`/results:`** This folder is for any additional results or intermediate files that the script may generate.
 
 To create these folders, you can run the following commands in your terminal:
-```
+```zsh
 mkdir output
 mkdir imgs
 mkdir results
