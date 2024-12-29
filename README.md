@@ -6,7 +6,8 @@ This repository contains a Python project that leverages the [`openeo`](https://
 ## Project Structure
 
 - **`/config`**: The folder containing the configurations for some automations.
-    - **`/config/args_config.json`**: The configuration of the command-line arguments for the script's task execution.
+    - **`/config/arg_config.json`**: The configuration of the command-line arguments for the script's task execution.
+    - - **`/config/cnv_config.json`**: The configuration of the command-line arguments for the convert's task execution.
 - **`script.py`**: The main file that extracts the GeoTIFF images for the specified area of interest.
 - **`convert.py`**: A script to convert the extracted GeoTIFF images to RGB PNG files.
 
@@ -60,7 +61,7 @@ python script.py --backend_connection "openeo.dataspace.copernicus.eu" \
 If you want to convert the extracted GeoTIFF files to RGB PNG format, you can run the `convert.py` script. The converted images will be saved in the `imgs/` folder.
 
 ```zsh
-python convert.py --input_dir "./output" --output_dir "./imgs"
+python convert.py --input_dir "./results" --out_dir "./imgs" --date "2024-12-29"
 ```
 
 ## Dependencies

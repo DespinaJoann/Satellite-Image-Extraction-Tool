@@ -1,11 +1,12 @@
-import argparse
-import openeo
-import json
+import argparse                     # To parse command-line arguments for script configuration
+import openeo                       # OpenEO library for connecting to and interacting with satellite data backends
+import json                         # To load and parse JSON configuration files
 
-# Ansi colorizations for better command line experience
-RED = '\033[31m'
-BLUE = '\033[34m'
-RESET = '\033[0m' # called to return to standard terminal text color
+# ANSI colorizations for better command-line experience
+RED = '\033[31m'                    # Red color for error messages
+BLUE = '\033[34m'                   # Blue color for success messages
+RESET = '\033[0m'                   # Reset to standard terminal text color
+
 
 def main (args) :
 
