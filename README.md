@@ -64,7 +64,7 @@ python script.py --backend_connection "openeo.dataspace.copernicus.eu" \
 - **`--collection`**: The collection of satellite data to retrieve (e.g., `"SENTINEL2_L2A"`).
 - **`--west`, `--south`, `--east`, `--north`**: The geographic coordinates of the area of interest (bounding box).
 - **`--start_date`, `--end_date`**: The time range for the data you want to extract.
-- **`--bands`**: A comma-separated list of spectral bands (e.g., `"B02,B04,B08"`).
+- **`--bands`**: A comma-separated list of spectral bands (e.g. for *RGB images*, `"B04,B03,B02"`).
 - **`--cloud_cover`**: The maximum allowable cloud cover percentage for the images.
 - **`--output_dir`**: The directory where the extracted GeoTIFF files will be stored.
 - **`--jobs_title`**: The title for the job that will be created on the backend.
