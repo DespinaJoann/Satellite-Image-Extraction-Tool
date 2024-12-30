@@ -55,7 +55,7 @@ python script.py --backend_connection "openeo.dataspace.copernicus.eu" \
     --collection "SENTINEL2_L2A" \
     --west 5.14 --south 51.17 --east 5.17 --north 51.19 \
     --start_date "2021-02-01" --end_date "2021-04-30" \
-    --bands "B02,B04,B08" --cloud_cover 20 \
+    --bands "B04,B03,B02" --cloud_cover 20 \
     --output_dir "./output" --jobs_title "Sentinel Data Extraction Job"
 ```
 
@@ -75,7 +75,7 @@ If you want to convert the extracted GeoTIFF files to RGB PNG format, you can ru
 
 **✨ Example Usage:**
 ```zsh
-python convert.py --input_dir "./results" --out_dir "./imgs" --date "2024-12-29"
+python convert.py --input_dir "./results" --out_dir "./imgs" --date "2024-12-29" --vis "true"
 ```
 
 ## 📦 Dependencies

@@ -4,7 +4,7 @@
             "name": "--input_dir",
             "type": "str",
             "required": true,
-            "help": "Directory containing input .tif files"
+            "help": "Directory containing input .tiff files"
         },
         {
             "name": "--out_dir",
@@ -17,6 +17,13 @@
             "type": "str",
             "required": true,
             "help": "The date of the image"
+        },
+        {
+            "name": "--vis",
+            "type": "str",
+            "required": false,
+            "default": "false",
+            "help": "Visualize the created RGB .png image"
         }
     ]
 }

@@ -6,12 +6,19 @@ import json                        # Load configuration settings (e.g., input/ou
 import argparse                    # Parse command-line arguments (for user input)
 
 
+# ANSI colorizations for better command-line experience
+
+RED = '\033[31m'                   # Red color for error messages
+BLUE = '\033[34m'                  # Blue color for success messages
+RESET = '\033[0m'                  # Reset to standard terminal text color
+
+
 def open_img(path_to_img):
     with rasterio.open(path_to_img) as src:
         band = src.read(1)
     return band
 
-def convert(path_to_img, out_dir, date, idx):
+def convert(path_to_img, out_dir, date, idx, vis):
     # Open the GeoTIFF image and extract its information
     with rasterio.open(path_to_img) as src:
         # Read all the bands of a Sentinel-2 image (B02 (Blue), B04 (Red), B08 (NIR))
@@ -30,10 +37,11 @@ def convert(path_to_img, out_dir, date, idx):
     # Scale to [0, 255] and convert to uint8
     rgb_image = (rgb_image * 255).astype(np.uint8)
 
-    # Visualize the resulting image
-    plt.imshow(rgb_image)
-    plt.axis("off")
-    plt.show()
+    # Visualize the resulting image if is wanted
+    if vis:
+        plt.imshow(rgb_image)
+        plt.axis("off")
+        plt.show()
 
     # Save the image to the output directory
     plt.imsave(f"{out_dir}/{date}_idx{idx}.png", rgb_image)
@@ -43,16 +51,18 @@ def main(args):
     os.makedirs(args.out_dir, exist_ok=True)
 
     # Loop through all files in the 'input_dir'
-    for idx, filename in enumerate(os.listdir(args.input_dir)):  # Use args.input_dir instead of input_dir
-        if filename.endswith(".tif"):  # Check if the file is a .tif image
+    for idx, filename in enumerate(os.listdir(args.input_dir)):     # Use args.input_dir instead of input_dir
+        if filename.endswith(".tif"):                               # Check if the file is a .tif image
             path_to_img = os.path.join(args.input_dir, filename)
             convert(
                 path_to_img=path_to_img,
                 out_dir=args.out_dir,
                 date=args.date,
-                idx=str(idx + 1)
-            )
-    print("Conversion process from .tif to .png succeeded!")
+                idx=str(idx + 1),
+                vis=bool(args.vis.capitalize() == "True")           # Convert to True or False boolean values, from
+            )                                                       # strings true or false with a funny way
+
+    print(BLUE + "Conversion process from .tif to .png succeeded!" + RESET)
 
 if __name__ == '__main__':
     # Load arguments configuration from JSON file
@@ -61,7 +71,7 @@ if __name__ == '__main__':
 
     # Set up argument parsing
     parser = argparse.ArgumentParser(
-        description="Convert .tif to .png"
+        description="Convert .tiff to .png"
     )
 
     # Add arguments to parser by iterating over the configuration list
