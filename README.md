@@ -27,8 +27,7 @@ This repository contains a Python project that leverages the [`openeo`](https://
 - **`/imgs:`** This folder will contain the image conversions, specifically the GeoTIFF to RGB PNG images.
 - **`/results:`** This folder is for any additional results or intermediate files that the script may generate.
 
-To create these folders, you can run the following commands in your terminal:
-
+**✨ Example:**To create these folders, you can run the following commands in your terminal:
 ```zsh
 mkdir output
 mkdir imgs
